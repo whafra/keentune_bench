@@ -52,7 +52,7 @@ def runPyBenchmark(python_path: str, ip: str):
     sys.path.append(Config.keentune_workspace)
     
     try:
-        from tmplib.benchmark import Benchmark
+        from tmp.benchmark import Benchmark
     except ModuleNotFoundError as e:
         return False, "import benchmark failed:{}".format(e)
     else:
