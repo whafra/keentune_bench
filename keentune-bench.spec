@@ -31,12 +31,15 @@ python3 setup.py build
 
 %install
 python3 setup.py install --single-version-externally-managed -O1 --prefix=%{_prefix} --root=%{buildroot} --record=INSTALLED_FILES
+mkdir -p ${RPM_BUILD_ROOT}/usr/lib/systemd/system/
+cp -f ./keentune-bench.service ${RPM_BUILD_ROOT}/usr/lib/systemd/system/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files -f INSTALLED_FILES
 %license LICENSE
+/usr/lib/systemd/system/keentune-bench.service
 
 %changelog
 * Mon Nov 15 2021 Runzhe Wang <15501019889@126.com> - 1.0.0-3
