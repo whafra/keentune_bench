@@ -20,11 +20,11 @@ class Config:
     print("KeenTune Home: {}".format(keentune_home))
     keentune_workspace = conf['home']['keentune_workspace']
     print("KeenTune Workspace: {}".format(keentune_workspace))
-    
+
     bench_port = conf['bench']['bench_port']
-    tmp_dir = os.path.join(keentune_workspace,"tmp")
+    tmp_dir = os.path.join(keentune_workspace, "tmp")
     files_dir = os.path.join(keentune_workspace, "files")
-    
+
     # log
     logfile_path = conf['log']['logfile_path']
     console_level = LOGLEVEL[conf['log']['console_level']]
@@ -37,6 +37,6 @@ class Config:
 
     if not os.path.exists(files_dir):
         os.makedirs(files_dir)
-        
+
     if not os.path.exists(tmp_dir):
         os.makedirs(tmp_dir)

@@ -3,12 +3,17 @@ from setuptools import setup, find_packages
 long_description = ""
 
 setup(
-    name = "keentune-bench",
-    version = "1.0.0",
+    name        = "keentune-bench",
+    version     = "1.0.0",
     description = "KeenTune bench unit",
+    url         = "https://gitee.com/anolis/keentune_bench",
+    license     = "MulanPSLv2",
+    packages    = find_packages(),
+    package_data= {'bench': ['bench.conf']},
+
+    python_requires  = '>=3.6',
     long_description = long_description,
-    url = "https://gitee.com/anolis/keentune_bench",
-    license = "MulanPSLv2",
+
     classifiers = [
         "Environment:: KeenTune",
         "IntendedAudience :: Information Technology",
@@ -19,12 +24,11 @@ setup(
         "Programming Language :: Python :: 3.6",
         "ProgrammingLanguage :: Python"
     ],
-    python_requires='>=3.6',
-    packages = find_packages(),
-    package_data={'bench': ['bench.conf']},
-    
-    data_files = [
-        ("/etc/keentune/bench",["LICENSE"]),
+    data_files  = [
+        ("/etc/keentune/bench", ["LICENSE"]),
         ("/etc/keentune/conf", ["bench/bench.conf"]),
     ],
+    entry_points = {
+        'console_scripts': ['keentune-bench=bench.bench:main']
+    }
 )

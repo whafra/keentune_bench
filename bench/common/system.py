@@ -1,5 +1,6 @@
 import json
 import subprocess
+import traceback
 
 from tornado.httpclient import HTTPRequest, AsyncHTTPClient, HTTPError
 
