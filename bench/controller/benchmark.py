@@ -5,7 +5,7 @@ from tornado.web import RequestHandler
 
 from bench.modules import benchmark
 from bench.common.config import Config
-from bench.common.pylog import APILog, functionLog
+from bench.common.pylog import functionLog
 from bench.common.system import HTTPPost
 
 
@@ -38,7 +38,7 @@ class BenchmarkHandler(RequestHandler):
                     "suc": suc, "result": res, "msg": ""}
             else:
                 response_data = {
-                    "suc": suc, "result": "", "msg": res}
+                    "suc": suc, "result": {}, "msg": res}
 
             await HTTPPost(
                 api="benchmark_result",

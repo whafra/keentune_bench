@@ -4,7 +4,6 @@ from bench.controller.sendfile import SendfileHandler
 from bench.controller.benchmark import BenchmarkHandler
 from bench.controller.status import StatusHandler
 
-from bench.common import pylog
 from bench.common.config import Config
 
 
@@ -18,8 +17,6 @@ This environment is used for running benchmark script to target environment to c
 
 
 def main():
-    pylog.init()
-
     app = tornado.web.Application(handlers=[
         (r"/sendfile", SendfileHandler),
         (r"/benchmark", BenchmarkHandler),
