@@ -23,7 +23,7 @@ def main():
         (r"/status", StatusHandler)
     ])
     app.listen(Config.bench_port)
-    print("KeenTune bench running...")
+    print("KeenTune bench running at port {}...".format(Config.bench_port))
     tornado.ioloop.IOLoop.current().start()
 
 
