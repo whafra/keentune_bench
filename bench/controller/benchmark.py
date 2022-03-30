@@ -93,9 +93,9 @@ class BenchmarkHandler(RequestHandler):
             self.finish()
             suc, res = yield self._runBenchmark(bench_cmd = request_data['benchmark_cmd'])
             if suc:
-                response_data = {"suc": suc, "result": res, "msg": "", "bench_id": bench_id}
+                response_data = {"suc": suc, "result": res, "msg": "", "bench_id": request_data['bench_id']}
             else:
-                response_data = {"suc": suc, "result": {}, "msg": res, "bench_id": bench_id}
+                response_data = {"suc": suc, "result": {}, "msg": res, "bench_id": request_data['bench_id']}
             
             _, msg = yield self._response(response_data, request_data['resp_ip'], request_data['resp_port'])
             print(msg)
