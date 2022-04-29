@@ -45,7 +45,7 @@ fi
 
 %files -f INSTALLED_FILES
 %license LICENSE
-%{_libdir}/systemd/system/keentune-bench.service
+%{_prefix}/lib/systemd/system/keentune-bench.service
 
 %changelog
 * Wed Jan 26 2022 lilinjie <lilinjie@uniontech.com> - 1.0.0-6
