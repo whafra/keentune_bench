@@ -22,6 +22,11 @@ KeenTune-bench - benchmark controlling components
 .
 .TP
 \fBsystemctl start keentune-bench.service\fR
+.
+.SH "benchmark"
+.
+.TP
+Interaction data with keentuned using the tornado architecture. Parse the post request data and get the python file of benchmark and return the results after execution. Send the heartbeat packet data, and the keentuned process can detect the data.
 
 .SH "BUGS"
 Report bugs at: https://gitee.com/anolis/keentuned/issues
