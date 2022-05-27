@@ -23,6 +23,7 @@ import sys
 import unittest
 
 from test_bench_sendfile import TestBenchSendfile
+from test_bench_benchmark import TestBenchBenchmark
 
 os.chdir(os.path.abspath(os.path.join(os.getcwd(), "test")))
 
@@ -30,6 +31,7 @@ os.chdir(os.path.abspath(os.path.join(os.getcwd(), "test")))
 def RunModelCase():
     suite = unittest.TestSuite()
     suite.addTest(TestBenchSendfile('test_bench_server_FUN_sendfile'))
+    suite.addTest(TestBenchBenchmark('test_bench_server_FUN_benchmark'))
     return suite
 
 
