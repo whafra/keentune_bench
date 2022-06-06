@@ -5,8 +5,6 @@ from test_bench_sendfile import TestBenchSendfile
 from test_bench_benchmark import TestBenchBenchmark
 from test_bench_status import TestBenchStatus
 
-os.chdir(os.path.abspath(os.path.join(os.getcwd(), "test")))
-
 
 def RunModelCase():
     suite = unittest.TestSuite()
