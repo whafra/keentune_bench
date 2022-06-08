@@ -62,12 +62,12 @@ fi
 %{_prefix}/lib/systemd/system/keentune-bench.service
 
 %changelog
-* Wed Mar 03 2022 Runzhe Wang <runzhe.wrz@alibaba-inc.com> - 1.1.0-1
+* Thu Mar 03 2022 Runzhe Wang <runzhe.wrz@alibaba-inc.com> - 1.1.0-1
 - fix bug: update version to 1.1.0 in setup.py script.
 - refactor tornado module: replace await by threadpool
 - fix other bugs
 
-* Wed Jan 01 2022 Runzhe Wang <runzhe.wrz@alibaba-inc.com> - 1.0.1
+* Sat Jan 01 2022 Runzhe Wang <runzhe.wrz@alibaba-inc.com> - 1.0.1
 - Supporting of multiple target tuning
 - Remove version limitation of tornado
 - Fix some user experience issues
