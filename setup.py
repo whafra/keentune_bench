@@ -4,7 +4,7 @@ long_description = ""
 
 setup(
     name        = "keentune-bench",
-    version     = "1.0.1",
+    version     = "1.1.0",
     description = "KeenTune bench unit",
     url         = "https://gitee.com/anolis/keentune_bench",
     license     = "MulanPSLv2",
