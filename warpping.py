@@ -1,5 +1,6 @@
 import re  
-import os  
+import os 
+
 def warppingCheck():
     with open("keentune-bench.spec",'r') as f:
         spec = f.read()
@@ -26,4 +27,4 @@ def warppingCheck():
 
 if __name__ == "__main__":
     version_in_spec, _ = warppingCheck()
-    os.system("tar -cvzf keentuned-bench-{}.tar.gz bench keentune-bench.service LICENSE README.md requirements.txt setup.py".format(version_in_spec))
+    os.system("tar -cvzf keentune-bench-{}.tar.gz --exclude=**/__pycache__ bench keentune-bench.service LICENSE README.md requirements.txt setup.py".format(version_in_spec))
