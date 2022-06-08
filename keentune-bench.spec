@@ -59,7 +59,7 @@ fi
 %defattr(-,root,root)
 %doc README.md README_cn.md
 %license LICENSE
-%{_prefix}/lib/systemd/system/keentune-target.service
+%{_prefix}/lib/systemd/system/keentune-bench.service
 
 %changelog
 * Wed Mar 03 2022 Runzhe Wang <runzhe.wrz@alibaba-inc.com> - 1.1.0-1
