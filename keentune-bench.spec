@@ -62,7 +62,7 @@ fi
 %{_prefix}/lib/systemd/system/keentune-target.service
 
 %changelog
-* Wed Mar 03 2022 Runzhe Wang <runzhe.wrz@alibaba-inc.com> - 1.1.0
+* Wed Mar 03 2022 Runzhe Wang <runzhe.wrz@alibaba-inc.com> - 1.1.0-1
 - fix bug: update version to 1.1.0 in setup.py script.
 - refactor tornado module: replace await by threadpool
 - fix other bugs
