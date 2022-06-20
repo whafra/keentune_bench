@@ -1,11 +1,11 @@
-%define anolis_release 6
+%define anolis_release 1
 
 #
 # spec file for package KeenTune-bench
 #
 
 Name:           keentune-bench
-Version:        1.0.0
+Version:        1.2.1
 Release:        %{?anolis_release}%{?dist}
 Url:            https://gitee.com/anolis/keentune_bench
 Summary:        Benchmark script running models for KeenTune
@@ -52,6 +52,9 @@ fi
 %{_mandir}/man5/keentune-bench.conf.5*
 
 %changelog
+* Mon Jun 20 2022 Runzhe Wang <runzhe.wrz@alibaba-inc.com> - 1.2.1-1
+- update docs
+
 * Wed Jan 26 2022 lilinjie <lilinjie@uniontech.com> - 1.0.0-6
 - remove empty conf dir when uninstall keentune-bench
 
