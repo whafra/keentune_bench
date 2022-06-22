@@ -70,7 +70,7 @@ fi
 - refactor tornado module: replace await by threadpool
 - fix other bugs
 
-* Sat Jan 01 2022 Runzhe Wang <runzhe.wrz@alibaba-inc.com> - 1.0.1
+* Tue Feb 01 2022 Runzhe Wang <runzhe.wrz@alibaba-inc.com>- 1.0.1
 - Supporting of multiple target tuning
 - Remove version limitation of tornado
 - Fix some user experience issues
