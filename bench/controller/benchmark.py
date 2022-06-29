@@ -65,10 +65,13 @@ class BenchmarkHandler(RequestHandler):
         if not suc:
             return False, result
 
-        suc, benchmark_result_dict = _parseBenchmarkResult(benchmark_result=result)
-        if not suc:
-            return False, "parse benchmark result failed:{}".format(benchmark_result_dict)
-
+        try:
+            suc, benchmark_result_dict = _parseBenchmarkResult(benchmark_result=result)
+            if not suc:
+                return False, "parse benchmark result failed:{}".format(benchmark_result_dict)
+        except IndexError as e:
+            return False, "invalid output format of benchmark script: {}".format(e)
+        
         return suc, benchmark_result_dict
 
 
