@@ -53,7 +53,7 @@ def _sendFileImpl(file_content, file_encode, file_path):
     """
     file_sub_path, file_name = os.path.split(file_path)
 
-    file_local_folder = os.path.join(Config.files_dir, file_sub_path)
+    file_local_folder = os.path.join(Config.FILES_PATH, file_sub_path)
     if not os.path.exists(file_local_folder):
         os.makedirs(file_local_folder)
     file_local_path = os.path.join(file_local_folder, file_name)

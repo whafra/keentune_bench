@@ -58,7 +58,7 @@ class BenchmarkHandler(RequestHandler):
             return True, benchmark_result_dict
 
         benchcmd_list = bench_cmd.split()
-        benchcmd_list[1] = os.path.join(Config.files_dir, benchcmd_list[1])
+        benchcmd_list[1] = os.path.join(Config.FILES_PATH, benchcmd_list[1])
         bench_cmd_local = " ".join(benchcmd_list)
 
         suc, result = benchmark.runBenchmark(bench_cmd_local)

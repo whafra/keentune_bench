@@ -1,7 +1,7 @@
 %define anolis_release 1
 
 Name:           keentune-bench
-Version:        1.2.1
+Version:        1.3.0
 Release:        %{?anolis_release}%{?dist}
 Url:            https://gitee.com/anolis/keentune_bench
 Summary:        Benchmark script running models for KeenTune
@@ -62,6 +62,10 @@ fi
 %{_prefix}/lib/systemd/system/keentune-bench.service
 
 %changelog
+* Thu Jun 30 2022 Runzhe Wang <runzhe.wrz@alibaba-inc.com> - 1.3.0
+- update config items in bench.conf
+- return error message if benchmark script return an invalid data
+
 * Mon Jun 20 2022 Runzhe Wang <runzhe.wrz@alibaba-inc.com> - 1.2.1-1
 - update docs
 
