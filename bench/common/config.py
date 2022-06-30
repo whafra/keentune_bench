@@ -4,43 +4,35 @@ import logging
 from configparser import ConfigParser
 
 LOGLEVEL = {
-    "DEBUG": logging.DEBUG,
-    "INFO": logging.INFO,
-    "WARNING": logging.WARNING,
-    "ERROR": logging.ERROR
+    "DEBUG"     : logging.DEBUG,
+    "INFO"      : logging.INFO,
+    "WARNING"   : logging.WARNING,
+    "ERROR"     : logging.ERROR
 }
-
 
 class Config:
     conf_file_path = "/etc/keentune/conf/bench.conf"
     conf = ConfigParser()
     conf.read(conf_file_path)
 
-    keentune_home = conf['home']['keentune_home']
-    print("KeenTune Home: {}".format(keentune_home))
-    keentune_workspace = conf['home']['keentune_workspace']
-    print("KeenTune Workspace: {}".format(keentune_workspace))
+    KEENTUNE_HOME      = conf['bench']['KEENTUNE_HOME']
+    KEENTUNE_WORKSPACE = conf['bench']['KEENTUNE_WORKSPACE']
+    BENCH_PORT         = conf['bench']['BENCH_PORT']
 
-    bench_port = conf['bench']['bench_port']
-    tmp_dir = os.path.join(keentune_workspace, "tmp")
-    files_dir = os.path.join(keentune_workspace, "files")
+    print("KeenTune Home: {}".format(KEENTUNE_HOME))
+    print("KeenTune Workspace: {}".format(KEENTUNE_WORKSPACE))
+
+    FILES_PATH = os.path.join(KEENTUNE_WORKSPACE, "bench-files")
 
     # log
-    logfile_path = conf['log']['logfile_path']
-    console_level = LOGLEVEL[conf['log']['console_level']]
-    logfile_level = LOGLEVEL[conf['log']['logfile_level']]
-    logfile_interval = int(conf['log']['logfile_interval'])
-    logfile_backup_count = int(conf['log']['logfile_backup_count'])
+    LOGFILE_PATH = conf['log']['LOGFILE_PATH']
+    _LogPATH = os.path.dirname(LOGFILE_PATH)
 
-    if not os.path.exists(keentune_workspace):
-        os.makedirs(keentune_workspace)
+    CONSOLE_LEVEL = LOGLEVEL[conf['log']['CONSOLE_LEVEL']]
+    LOGFILE_LEVEL = LOGLEVEL[conf['log']['LOGFILE_LEVEL']]
+    LOGFILE_INTERVAL = int(conf['log']['LOGFILE_INTERVAL'])
+    LOGFILE_BACKUP_COUNT = int(conf['log']['LOGFILE_BACKUP_COUNT'])
 
-    if not os.path.exists(files_dir):
-        os.makedirs(files_dir)
-
-    if not os.path.exists(tmp_dir):
-        os.makedirs(tmp_dir)
-
-    log_dir = os.path.dirname(logfile_path)
-    if not os.path.exists(log_dir):
-        os.makedirs(log_dir)
+    for _PATH in [KEENTUNE_WORKSPACE, FILES_PATH, _LogPATH]:
+        if not os.path.exists(_PATH):
+            os.makedirs(_PATH)
