@@ -1,4 +1,5 @@
 import tornado
+import os
 
 from bench.controller.sendfile import SendfileHandler
 from bench.controller.benchmark import BenchmarkHandler
@@ -28,4 +29,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        os._exit(0)
