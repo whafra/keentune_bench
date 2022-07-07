@@ -2,11 +2,15 @@ import json
 import logging
 import functools
 import traceback
+import os
+import sys
 
 from bench.common.config import Config
-
 from logging.handlers import TimedRotatingFileHandler
 
+if os.geteuid() != 0:
+    print("Superuser permissions are required to run the daemon.", file=sys.stderr)
+    sys.exit(1)
 
 logger = logging.getLogger(__name__)
 
