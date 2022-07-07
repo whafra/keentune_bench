@@ -4,11 +4,10 @@ import json
 from tornado.web import RequestHandler
 
 from bench.common.config import Config
-from bench.common.pylog import APILog, functionLog
+from bench.common.pylog import functionLog
 
 
 class SendfileHandler(RequestHandler):
-    @APILog
     def post(self):
         request_data = json.loads(self.request.body)
 
