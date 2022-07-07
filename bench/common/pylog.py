@@ -1,4 +1,4 @@
-import json
+import os
 import logging
 import functools
 import traceback
@@ -53,7 +53,7 @@ try:
     _initLogger()
 except PermissionError:
     print("[PERMISSION ERROR] NO Permissions to init Log File!")
-    exit(0)
+    os._exit(0)
 
 CALL_LEVEL = -1
 PLACEHOLDER = " " * 4
@@ -88,7 +88,7 @@ def functionLog(func):
                 func=func.__qualname__,
                 trace=traceback.format_exc()))
             CALL_LEVEL -= 1
-            return False, e
+            return out
 
         else:
             logger.debug("{placeholder}[{module}.{func}] >> {out}".format(
