@@ -48,31 +48,11 @@ class BenchmarkHandler(RequestHandler):
 
 
     @run_on_executor
-    def _runBenchmark(self, bench_cmd: str):
-        def _parseBenchmarkResult(benchmark_result: str):
-            benchmark_result_dict = {}
-            for equation in benchmark_result.split(","):
-                name = equation.split("=")[0].strip()
-                value = equation.split("=")[1].strip()
-                benchmark_result_dict[name] = {"value": float(value)}
-            return True, benchmark_result_dict
-
+    def _runBenchmark(self, bench_cmd: str, round: int = 1):
         benchcmd_list = bench_cmd.split()
         benchcmd_list[1] = os.path.join(Config.FILES_PATH, benchcmd_list[1])
         bench_cmd_local = " ".join(benchcmd_list)
-
-        suc, result = benchmark.runBenchmark(bench_cmd_local)
-        if not suc:
-            return False, result
-
-        try:
-            suc, benchmark_result_dict = _parseBenchmarkResult(benchmark_result=result)
-            if not suc:
-                return False, "parse benchmark result failed:{}".format(benchmark_result_dict)
-        except IndexError as e:
-            return False, "invalid output format of benchmark script: {}".format(e)
-        
-        return suc, benchmark_result_dict
+        return benchmark.runBenchmark(bench_cmd_local, round)
 
 
     @coroutine
@@ -82,6 +62,7 @@ class BenchmarkHandler(RequestHandler):
             assert request_data.__contains__('resp_port')
             assert request_data.__contains__('benchmark_cmd')
             assert request_data.__contains__('bench_id')
+            assert request_data.__contains__('round')
 
         request_data = json.loads(self.request.body)
         try:
@@ -92,13 +73,17 @@ class BenchmarkHandler(RequestHandler):
             self.finish()
 
         else:
-            self.write(json.dumps({"suc" : True, "msg": ""}))
+            self.write(json.dumps({"suc" : True, "msg": "Benchmark is Runing"}))
             self.finish()
-            suc, res = yield self._runBenchmark(bench_cmd = request_data['benchmark_cmd'])
+
+            suc, res = yield self._runBenchmark(
+                bench_cmd = request_data['benchmark_cmd'], 
+                round     = request_data['round']
+            )
+
             if suc:
                 response_data = {"suc": suc, "result": res, "msg": "", "bench_id": request_data['bench_id']}
             else:
                 response_data = {"suc": suc, "result": {}, "msg": res, "bench_id": request_data['bench_id']}
             
             _, msg = yield self._response(response_data, request_data['resp_ip'], request_data['resp_port'])
-            print(msg)
