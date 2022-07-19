@@ -39,7 +39,7 @@ def warppingCheck():
             print("[OK] check the version of changelog at keentune-bench.spec.")
         else:
             print("[Failed] wrong version number in changelog at keentune-bench.spec.")
-            return
+            exit(1)
 
     with open(os.path.join(source_dir,"setup.py"), 'r') as f:
         script = f.read()
@@ -47,7 +47,7 @@ def warppingCheck():
             print("[OK] check the version of setup.py.")
         else:
             print("[Failed] wrong version number in setup.py.")
-            return
+            exit(1)
 
     print("Start wrap up of keentune-bench-{}-{}".format(version_in_spec, release_in_spec))
     return version_in_spec, release_in_spec
