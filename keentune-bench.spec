@@ -1,4 +1,4 @@
-%define anolis_release 1
+%define anolis_release 0
 
 Name:           keentune-bench
 Version:        1.3.0
@@ -62,7 +62,7 @@ fi
 %{_prefix}/lib/systemd/system/keentune-bench.service
 
 %changelog
-* Thu Jun 30 2022 Runzhe Wang <runzhe.wrz@alibaba-inc.com> - 1.3.0
+* Thu Jun 30 2022 Runzhe Wang <runzhe.wrz@alibaba-inc.com> - 1.3.0-0
 - update config items in bench.conf
 - return error message if benchmark script return an invalid data
 
