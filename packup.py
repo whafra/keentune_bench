@@ -60,6 +60,7 @@ if __name__ == "__main__":
     os.system("mkdir keentune-bench-{}".format(version_in_spec))
 
     os.system("cp -r {} keentune-bench-{}".format(os.path.join(source_dir,"bench"), version_in_spec))
+    os.system("cp -r {} keentune-bench-{}".format(os.path.join(source_dir,"man"), version_in_spec))
     os.system("cp -r {} keentune-bench-{}".format(os.path.join(source_dir,"keentune-bench.service"), version_in_spec))
     os.system("cp -r {} keentune-bench-{}".format(os.path.join(source_dir,"LICENSE"), version_in_spec))
     os.system("cp -r {} keentune-bench-{}".format(os.path.join(source_dir,"README.md"), version_in_spec))
