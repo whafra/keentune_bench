@@ -21,7 +21,7 @@ def main():
     app = tornado.web.Application(handlers=[
         (r"/sendfile", SendfileHandler),
         (r"/benchmark", BenchmarkHandler),
-        (r"/status", StatusHandler)
+        (r"/status", StatusHandler),
         (r"/avaliable", AvaliableDomainHandler)
     ])
     app.listen(Config.BENCH_PORT)
