@@ -34,7 +34,7 @@ class AvaliableDomainHandler(RequestHandler):
         """
         request_data = json.loads(self.request.body)
         agent_address = request_data['agent_address']
-        if not isinstance(agent_address, Iterable):
+        if not isinstance(agent_address, list):
             agent_address = [agent_address]
         result = checkAddressAvaliable(agent_address)
         self.write(json.dumps(result))
