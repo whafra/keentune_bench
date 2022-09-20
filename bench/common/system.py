@@ -1,4 +1,3 @@
-import brain.controller
 import subprocess
 import os
 
@@ -40,5 +39,3 @@ def checkAddressAvaliable(address_list: list):
             
         result[ip] = suc
     return result
-
-checkAddressAvaliable(["11.158.239.49"])
