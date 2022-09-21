@@ -1,7 +1,7 @@
-%define anolis_release 1
+%define anolis_release 0
 
 Name:           keentune-bench
-Version:        1.3.0
+Version:        1.4.0
 Release:        %{?anolis_release}%{?dist}
 Url:            https://gitee.com/anolis/keentune_bench
 Summary:        Benchmark script running models for KeenTune
@@ -66,6 +66,9 @@ fi
 %{_mandir}/man5/keentune-bench.conf.5*
 
 %changelog
+* Wed Sep 21 2022 Runzhe Wang <runzhe.wrz@alibaba-inc.com> - 1.4.0-0
+- feat: new API /avaliable to checkout if destination touchable
+
 * Thu Jul 21 2022 Runzhe Wang <runzhe.wrz@alibaba-inc.com> - 1.3.0-1
 - fix: missing of man dir  
 
