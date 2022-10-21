@@ -1,5 +1,8 @@
 import subprocess
+import os
+
 from bench.common.pylog import functionLog
+from bench.common.pylog import logger
 
 
 @functionLog
@@ -23,3 +26,16 @@ def sysCommand(command: str, cwd: str = "./"):
         return suc, error
     else:
         return suc, out
+
+
+def checkAddressAvaliable(address_list: list):
+    result = {}
+    for ip in address_list:
+        suc, _ = sysCommand("ping -W 1 -c 1 {ip}".format(ip = ip))
+        if not suc:
+            logger.warning("Failed to ping {}".format(ip))
+        else:
+            logger.info("Success to ping {}".format(ip))
+            
+        result[ip] = suc
+    return result
