@@ -40,7 +40,7 @@ class SendfileHandler(RequestHandler):
 
 @functionLog
 def _sendFileImpl(file_content, file_encode, file_path):
-    """ Save filc content to KeenTune home dir
+    """ Save file content to KeenTune work dir
 
     Args:
         file_content (str): file content to save.
