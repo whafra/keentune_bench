@@ -45,11 +45,7 @@ install -D -m 0644 man/keentune-bench.conf.5 ${RPM_BUILD_ROOT}%{_mandir}/man5/ke
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%systemd_post keentune-bench.service
-if [ -f "%{_prefix}/lib/systemd/system/keentune-bench.service" ]; then
-    systemctl enable keentune-bench.service || :
-    systemctl start keentune-bench.service || :
-fi
+systemctl daemon-reload
 
 %preun
 %systemd_preun keentune-bench.service
