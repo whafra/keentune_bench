@@ -23,7 +23,7 @@ class TestBenchBenchmark(unittest.TestCase):
         
         result = requests.post(url, data=json.dumps(data), headers=headers, proxies=self.proxies)
         self.assertEqual(result.status_code, 200)
-        self.assertEqual(result.text, '{"suc": true, "msg": "/var/keentune/files/demo.sh"}')
+        self.assertIn('"suc": true', result.text)
  
     def tearDown(self) -> None:
         pass
@@ -34,11 +34,12 @@ class TestBenchBenchmark(unittest.TestCase):
             "bench_id": 1,
             "resp_ip": "localhost",
             "resp_port": "9871",
-            "benchmark_cmd":"bash demo.sh"
+            "benchmark_cmd":"bash demo.sh",
+            "round": 1
         }
 
         headers = {"Content-Type": "application/json"}
         
         result = requests.post(url, data=json.dumps(data), headers=headers, proxies=self.proxies)
         self.assertEqual(result.status_code, 200)
-        self.assertEqual(result.text, '{"suc": true, "msg": ""}')
+        self.assertIn('"suc": true', result.text)
